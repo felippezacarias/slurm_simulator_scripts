@@ -20,6 +20,8 @@ PREPARING INPUT:
 - gcc -O3 -g -Wall  swf2trace.c -o swf2trace -lm
 - ./swf2trace input.swf
 - it will generate a file called simple.trace and you can use this file to execute the simulation.
+- From workload_test branch compile swf2trace using
+	- gcc swf2trace.c -o swf2trace -I../../ -lm
 
 OUTPUTS:
 - Job completion log will be under simulation_<output>/TRACES/trace.test.<output>$
