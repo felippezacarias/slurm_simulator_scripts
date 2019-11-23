@@ -37,6 +37,7 @@ echo "Running Configure"
 --mandir=$install_dir/slurm_varios/man \
 --prefix=$install_dir/slurm_programs --sysconfdir=$install_dir/slurm_conf \
 --enable-front-end \
+--with-hdf5=no \
 --enable-simulator 2> slurm_configure.log
 
 echo "Compiling"
