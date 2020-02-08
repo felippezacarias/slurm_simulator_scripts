@@ -1,4 +1,3 @@
-bsc28161:2519
 root:0
 linpack:500
 nobody:65534
@@ -7,4 +6,4 @@ ntp:74
 sshd:494
 munge:291
 slurm:292
-bsc28600:2086
+unknow:4294967295

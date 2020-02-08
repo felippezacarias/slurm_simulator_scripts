@@ -28,6 +28,7 @@ OUTPUTS:
 - SLURM daemons'logs. if enabled in slurm.conf, will be under slurm_varios/log/
 
 TIPS:
+- For version > 19.05, check if the system has: autoconf,automake,gtk2-devel installed. Also use autoreconf to generate configure files.
 - Before launching the local or remote job be sure your user is on slurm.conf files and users.sim. This only need to be done once.
 - To modify users on slurm.conf execute: sed -i 's/bsc28161/<user_name>/g' slurm.conf.template
 - To add your user to  users.sim type: echo "$(whoami):$(id -u bscuser)" >> users.sim
