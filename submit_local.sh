@@ -27,6 +27,8 @@ bf_queue_limit=5000
 
 sim_path="simulation_"$SLURM_JOBID
 
+time_limit_file=$sim_path
+
 if [ -e $sim_path ]
 then
 	echo "[ERROR]"
@@ -113,6 +115,8 @@ source env.sh
 export SLURM_CONF=$(pwd)/slurm_conf/slurm.conf
 sim_mgr $2 -f -w $3
 
+echo "#jobid soft_time_limit req_time" >> $time_limit_file
+grep "Got info"  $sim_path/slurm_varios/log/slurmd.log | awk '{print $7" "$12" "$14}' >> $time_limit_file 
 
 #generate output
 #Not tested
