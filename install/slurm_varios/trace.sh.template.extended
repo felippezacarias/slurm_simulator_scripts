@@ -7,7 +7,7 @@
 #BSUB -q bsc_debug
 #BSUB -W 00:05
 
-echo "JobId=$JOBID JobState=$JOBSTATE Partition=$PARTITION SoftTimeLimit=$LIMIT SubmitTime=$SUBMIT StartTime=$START EndTime=$END NodeList=$NODES NodeCnt=$NODECNT ProcCnt=$PROCS Backfilled=$BACKFILLED MemoryNodes=$MEMORYNODES MemoryNodesCnt=$MEMORYNODESCNT NumTasks=$REQNUMTASKS NumTasksPerNode=$REQTASKSPERNODE MinCpus=$REQMINCPUS MinNodes=$REQMINNODES Shared=$REQSHARED NumCpuPerTask=$REQCPUPERTASK MemPerCpu=$MEMORYPERCPU MemPerNode=$MEMORYPERNODE" >> {DIR_WORK}/TRACES/trace.test.{ID_JOB}
+echo "JobId=$JOBID JobState=$JOBSTATE Partition=$PARTITION SoftTimeLimit=$LIMIT HardTimeLimit=$HARDLIMIT SubmitTime=$SUBMIT StartTime=$START EndTime=$END NodeList=$NODES NodeCnt=$NODECNT ProcCnt=$PROCS Backfilled=$BACKFILLED MemoryNodes=$MEMORYNODES MemoryNodesCnt=$MEMORYNODESCNT NumTasks=$REQNUMTASKS NumTasksPerNode=$REQTASKSPERNODE MinCpus=$REQMINCPUS MinNodes=$REQMINNODES Shared=$REQSHARED NumCpuPerTask=$REQCPUPERTASK MemPerCpu=$MEMORYPERCPU MemPerNode=$MEMORYPERNODE" >> {DIR_WORK}/TRACES/trace.test.{ID_JOB}
 
 #The plugin sets up the environment for the program to contain the following variables:
 #ACCOUNT:   Job's account value
