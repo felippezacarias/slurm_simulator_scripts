@@ -1,0 +1,63 @@
+AuthType=auth/none
+SlurmUser=dsuser
+SlurmdUser=dsuser
+ControlMachine=TOKEN_CONTROL_MACHINE #ubuntu
+ControlAddr=TOKEN_CONTROL_MACHINE #ubuntu
+SlurmctldTimeout=300
+SlurmdTimeout=300
+## Parameters for benchmarking
+SlurmctldParameters=bw_threshold=0.75,is_multi_curve=1
+MessageTimeout=60
+ReturnToService=1
+
+SlurmctldPort=TOKEN_SLURMCTLD_PORT
+SlurmdPort=TOKEN_SLURMD_PORT
+CredType=cred/none
+LaunchParameters=disable_send_gids
+JobCredentialPrivateKey=TOKEN_SLURM_USER_PATH/slurm_conf/slurm.key
+JobCredentialPublicCertificate=TOKEN_SLURM_USER_PATH/slurm_conf/slurm.cert
+PluginDir=TOKEN_SLURM_USER_PATH/slurm_varios/lib/slurm
+TaskPlugin=task/none
+PropagatePrioProcess=0
+PropagateResourceLimitsExcept=CPU
+ProctrackType=proctrack/linuxproc
+KillWait=60
+WaitTime=120
+MaxJobCount=56000
+MinJobAge=300
+OverTimeLimit=1
+InactiveLimit=1800
+
+JobAcctGatherType=jobacct_gather/none
+JobAcctGatherFrequency=30
+
+JobCompType=jobcomp/script
+JobCompLoc=TOKEN_SLURM_USER_PATH/slurm_varios/trace.sh
+
+SlurmctldDebug=info
+SlurmctldLogFile=TOKEN_SLURM_USER_PATH/slurm_varios/log/slurmctld.log
+SlurmdDebug=info
+SlurmdLogFile=TOKEN_SLURM_USER_PATH/slurm_varios/log/slurmd.log
+
+SlurmdSpoolDir=TOKEN_SLURM_USER_PATH/slurm_varios/var/spool
+StateSaveLocation=TOKEN_SLURM_USER_PATH/slurm_varios/var/state
+CacheGroups=0
+CheckpointType=checkpoint/none
+SwitchType=switch/none
+MpiDefault=none
+SchedulerType=sched/backfill
+SchedulerParameters=bf_interval=30,bf_queue_limit=TOKEN_BF_QUEUE_LIMIT,default_queue_depth=100
+SelectType=select/cons_res
+SelectTypeParameters=CR_Core_Memory
+ClusterName=perfdevel_mall
+
+FrontendName=TOKEN_CONTROL_MACHINE #ubuntu
+
+SlurmctldPidFile=TOKEN_SLURM_USER_PATH/slurm_varios/slurmctld.pid
+SlurmdPidFile=TOKEN_SLURM_USER_PATH/slurm_varios/slurmd.pid
+
+NodeName=n[TOKEN_NODES_B1-TOKEN_NODES_T1] Sockets=TOKEN_NSOCKETS CoresPerSocket=TOKEN_NCORES ThreadsPerCore=1 RealMemory=TOKEN_NMEMORY1
+NodeName=n[TOKEN_NODES_B2-TOKEN_NODES_T2] Sockets=TOKEN_NSOCKETS CoresPerSocket=TOKEN_NCORES ThreadsPerCore=1 RealMemory=TOKEN_NMEMORY2
+
+PartitionName=normal Nodes=n[TOKEN_NODES_B1-TOKEN_NODES_T2] Default=YES MaxTime=INFINITE State=UP OverSubscribe=EXCLUSIVE
+
